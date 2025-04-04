@@ -1,0 +1,92 @@
+/'
+
+    Domain model for Patient Assist Project - SYSDAT F25 
+
+    Crow's Foot Notation:
+        Type 	        Symbol
+        
+        Zero or One 	|o--
+        Exactly One 	||--
+        Zero or Many 	}o--
+        One or Many 	}|--
+
+'/
+
+@startuml
+
+entity app {
+    +font size
+    +screen reader
+    +color contrast
+    +voice control
+}
+
+entity patient {
+    +bed number
+}
+
+entity order {
+    +dish
+    +status
+    +patient
+    +note
+}
+
+entity dish {
+    +details
+    +allergens
+    +date
+}
+
+entity kitchen {
+    +headchef
+}
+
+entity game {
+}
+
+entity difficulty {
+}
+
+entity category {
+}
+
+entity scores {
+}
+
+entity headchef {
+    +kitchen
+}
+
+entity menu {
+    +dishes
+}
+
+/' 
+
+    RELATIONS
+    
+'/
+
+patient ||--o{ order
+order ||--|{ dish
+order }o--|| kitchen
+
+game }o--|| difficulty
+game }o--o{ category
+game ||--|| scores
+
+kitchen ||--|| menu
+kitchen ||--|| headchef
+
+/' 
+
+    NOTES 
+    
+'/
+
+note right of dish::date
+    when this dish should be available on a menu
+end note
+
+@enduml
