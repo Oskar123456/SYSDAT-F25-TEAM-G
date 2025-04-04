@@ -55,7 +55,7 @@ see important events, including meal order deadlines.`
 
  - Given the patient is in the calendar view,
  - When there is a deadline for ordering meals,
- - Then the system displays a notification or highlight showing the latest possible time to place an order.
+ - Then the system displays a highlight showing the latest possible time to place an order.
 
 ### Scenario: Calendar Loading Fails
 

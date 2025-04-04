@@ -1,0 +1,28 @@
+/'
+
+    EER model for Patient Assist Project - SYSDAT F25 
+
+    Crow's Foot Notation:
+        Type 	        Symbol
+        
+        Zero or One 	|o--
+        Exactly One 	||--
+        Zero or Many 	}o--
+        One or Many 	}|--
+
+'/
+
+@startuml
+
+entity patient {
+    +bed number
+}
+
+/' 
+
+    NOTES 
+    
+'/
+
+@enduml
+
