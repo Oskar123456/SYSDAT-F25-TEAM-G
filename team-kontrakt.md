@@ -15,31 +15,11 @@ Emne
 
 |Emne|Aftaler|Kommentarer|
 |---|---|---|
-|Roller|SM/Dev: Nicklas|Man må gerne skiftes|
-||Tech Lead/Dev: Oskar||
-||Dev: Tobias||
-||Dev: Ömer||
+|Roller|SM/Dev: Nicklas<br>Tech Lead/Dev: Oskar<br>Dev: Tobias<br>Dev: Ömer|Man må gerne skiftes<br>Ingen PO|
+|Arbejdstid|Mandag 9-16 fast (fremmøde & DSU)<br>Fredag 9-12 (DSU)|Arbejder selvstændigt, men DSU, som bliver fastlagt løbende på arbejdsdagene|
 
 
 
-
-Developer/Scrum master/
-
-Teach Lead
-
-Ingen PO da vi ikke har været med til at udvikle
-
-
-
-Arbejdstid
-
-
-Mandag 9-16 fast (fremmøde+ DSU)
-
-Fredag 9-12 (DSU)
-
-
-Arbejder selvstændigt, men DSU, som bliver fastlagt løbende på arbejdsdagene
 
 Afbudsregler
 
