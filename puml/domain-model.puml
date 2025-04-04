@@ -37,6 +37,7 @@ entity dish {
     +allergens
     +date
 }
+note bottom: date: when this dish should be available on a menu
 
 entity kitchen {
     +headchef
@@ -62,6 +63,32 @@ entity menu {
     +dishes
 }
 
+entity calendar {
+    +patient
+    +appointments
+    +events
+}
+
+entity appointment {
+    +date
+}
+
+entity event {
+    +date
+}
+
+entity doctor {
+}
+
+entity nurse {
+}
+
+entity training_program {
+}
+
+entity exercise {
+}
+
 /' 
 
     RELATIONS
@@ -79,14 +106,24 @@ game ||--|| scores
 kitchen ||--|| menu
 kitchen ||--|| headchef
 
+calendar ||--o{ appointment
+calendar ||--o{ event
+calendar ||--|| patient
+calendar }|--o{ order
+
+appointment }o--|| patient
+appointment }o--o{ doctor
+appointment }o--o{ nurse
+
+patient ||--o{ training_program
+training_program ||--o{ exercise
+
+app ||--o{ game
+
 /' 
 
     NOTES 
     
 '/
-
-note right of dish::date
-    when this dish should be available on a menu
-end note
 
 @enduml
