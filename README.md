@@ -1,6 +1,6 @@
-# SYSDAT-F25-TEAM-G
+# TEAM G - Systemudvikling F25, Datamatiker, Cph. Business School
 
- - Collection of all information, artifacts, documents from Team G
+ - Single Point of Access for Team G
 
 ## CONTACT INFO
 
