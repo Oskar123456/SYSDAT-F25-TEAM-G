@@ -19,7 +19,6 @@ Emne
 |Fildeling|Github||
 |Ambitioner|Vi forventer samlet at få produceret en udmærket prototype, hvor ambitionsnivauet er på individnivaeu.|Alle bidrager der hvor man kan. Man må gerne sigte højt/lavt og huske at række ud, hvis man sidder fast.|
 |Konflikter|Samtaler på Discord.|Man henvender sig og tager en sober og konstruktiv dialog og evt. inddrager en mægler (medstuderende/underviser)|
-|Mødekultur|~15 min. DSU på de dage der er sat af til arbejde.<br>Altid online (voice call)<br>Casual, problemorienteret, online voice call.
-|Muligvis spontane møder ifbm. uforudsete problemer der ikke kan vente.|
+|Mødekultur|~15 min. DSU på de dage der er sat af til arbejde.<br>Altid online (voice call)<br>Casual, problemorienteret, online voice call.|Muligvis spontane møder ifbm. uforudsete problemer der ikke kan vente.|
 |Logbog|Taiga.io, fælles logbog dokument, mødereferater og TODO-lister paa fælles Github repo||
 
