@@ -1,5 +1,3 @@
-# TEAM G USER STORIES
-
 ## US6
 
 `As a patient admitted to the hospital, I want to see a calendar with the
