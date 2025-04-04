@@ -16,6 +16,7 @@
 
 entity patient {
     +bed number
+    +bed number
 }
 
 /' 

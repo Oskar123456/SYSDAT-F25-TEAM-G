@@ -2,10 +2,13 @@
 
  - Collection of all information, artifacts, documents from Team G
 
+## CONTACT INFO
+
+ - [Discord](https://discord.com/channels/1333369587655512094/1333369588259487788)
+
 ## LINKS
 
  - [Github Org](https://github.com/SYSDAT-PATIENT-ASSIST)
- - [Discord](https://discord.com/channels/1333369587655512094/1333369588259487788)
 
 ## TODO
 
