@@ -13,10 +13,43 @@
 '/
 
 @startuml
+!theme cyborg
+skinparam linetype ortho
 
 entity patient {
-    +bed number
-    +bed number
+    * id : bigint <<PK>>
+    --
+    * bed number  <<FK>>
+}
+
+entity appointment {
+    * id : bigint <<PK>>
+    --
+}
+
+entity room {
+    * id : bigint <<PK>>
+    --
+}
+entity bed {
+    * id : bigint <<PK>>
+    --
+}
+entity employee {
+    * id : bigint <<PK>>
+    --
+}
+entity appointment {
+    * id : bigint <<PK>>
+    --
+}
+entity event {
+    * id : bigint <<PK>>
+    --
+}
+entity game {
+    * id : bigint <<PK>>
+    --
 }
 
 /' 

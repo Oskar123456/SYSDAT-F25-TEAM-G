@@ -13,6 +13,8 @@
 '/
 
 @startuml
+!theme cyborg
+skinparam linetype ortho
 
 entity app {
     +font size
