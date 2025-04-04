@@ -13,7 +13,7 @@
 '/
 
 @startuml
-!theme superhero
+!theme cerulean
 skinparam linetype ortho
 
 entity app {
