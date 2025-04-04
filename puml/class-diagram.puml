@@ -24,17 +24,24 @@ class App {
     +voiceControl
     +confirmationMessage
     +defaultSettings
+    +games
 }
 
 class Patient {
     +bedNumber
     +allergies
+    +notify()
+    +addAppointment()
 }
 
 class Menu {
+    +dishes
+    +addDish()
+    +removeDish()
 }
 
 class Dish {
+    +timeInterval
     +allergens
 }
 
@@ -42,6 +49,10 @@ class DishOrder {
     +dish
     +orderStatus
     +deliveryDelay
+}
+
+class Allergy {
+    +Allergens
 }
 
 class Allergen {
@@ -57,6 +68,13 @@ class Game {
 class GameMenu {
 }
 
+class Game {
+    +difficulty
+    +category
+    +play()
+    +saveScore
+}
+
 class KitchenStaff {
 }
 
@@ -68,10 +86,14 @@ class Notification {
 class Calender {
     +events
     +appointments
+    +checkNotifications()
 }
 
-class Events {
-    
+class Event {
+    +time
+    +patients
+    +reschedule()
+    +cancel()
 }
 
 class Appointment {
@@ -79,11 +101,51 @@ class Appointment {
     +employees
 }
 
+class Employee {
+    +role
+    +department
+}
+
+class Room {
+    +id
+    +beds
+    +addBed()
+    +removeBed()
+}
+
+class Bed {
+    +id
+    +patient
+    +addPatient()
+    +removePatient()
+}
+
+enum Role
+
 /' 
 
     RELATIONS
     
 '/
+
+App --* "1" GameMenu : has
+App --* "0..*" Game : has
+App --* "1" Calendar : has
+Patient --* "1" Calendar : has
+Patient "0..*" *--* "0..*" Allergy : has
+Allergy "1..*" *--* "0..*" Allergen : has
+Dish "1..*" *-- DishOrder : has
+Dish --* "0..*" Allergen : has
+Calendar --* "0..*" Appointment : has
+Calendar --* "0..*" Event : has
+Calendar --* "0..*" Notification : has
+Event --* "0..*" Patient : has
+Appointment --* "1..*" Patient : has
+Appointment --* "1..*" Employee : has
+Room --* "0..*" Bed : has
+Bed --* "0..1" Patient : has
+Menu --* "0..1" Dish : has
+Employee --* "1..*" Role : has
 
 /' 
 
