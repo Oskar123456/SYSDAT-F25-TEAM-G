@@ -69,6 +69,20 @@ entity game {
     name : varchar
 }
 
+entity score {
+    * id : bigint <<PK>>
+    --
+    value : bigint
+}
+
+entity game_score {
+    * id : bigint <<PK>>
+    --
+    * patient_id : bigint <<FK>>
+    * game_id : bigint <<FK>>
+    * score_id : bigint <<FK>>
+}
+
 entity _order {
     * id : bigint <<PK>>
     --
@@ -179,6 +193,9 @@ appointment_employee }o--|| employee
 
 game ||--|{ game_category
 game_category }o--|| category
+game ||--|{ game_score
+game_score }o--|| score
+patient ||--|{ game_score
 
 event ||--|{ event_patient
 event_patient }o--|| patient
