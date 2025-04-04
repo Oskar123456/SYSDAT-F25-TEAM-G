@@ -134,8 +134,8 @@ App --* "1" GameMenu : has
 App --* "0..*" Game : has
 App --* "1" Calendar : has
 Patient --* "1" Calendar : has
-Patient "0..*" *--* "0..*" Allergy : has
-Allergy "1..*" *--* "0..*" Allergen : has
+Patient --* "0..*" Allergy : has
+Allergy --* "1..*" Allergen : has
 Dish "1..*" *-- DishOrder : has
 Dish --* "0..*" Allergen : has
 Calendar --* "0..*" Appointment : has
