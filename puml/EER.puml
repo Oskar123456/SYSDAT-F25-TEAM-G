@@ -22,9 +22,18 @@ entity patient {
     * bed number  <<FK>>
 }
 
+entity patient_allergy {
+    * id : bigint <<PK>>
+    --
+    * patient_id : bigint <<FK>>
+    * allergen_id : bigint <<FK>>
+}
+
 entity appointment {
     * id : bigint <<PK>>
     --
+    * patient_id : bigint <<FK>>
+    * employee_id : bigint <<FK>>
 }
 
 entity room {
@@ -34,23 +43,83 @@ entity room {
 entity bed {
     * id : bigint <<PK>>
     --
+    * room_id : bigint <<FK>>
 }
 entity employee {
     * id : bigint <<PK>>
     --
+    role : enum
 }
-entity appointment {
-    * id : bigint <<PK>>
-    --
-}
+
 entity event {
     * id : bigint <<PK>>
     --
+    time : timestamp
 }
+
 entity game {
     * id : bigint <<PK>>
     --
+    name : varchar
 }
+
+entity _order {
+    * id : bigint <<PK>>
+    --
+    * patient_id : bigint <<FK>>
+    time : timestamp
+}
+
+entity order_dish {
+    * id : bigint <<PK>>
+    --
+    * order_id : bigint <<FK>>
+    * dish_id : bigint <<FK>>
+}
+
+entity dish {
+    * id : bigint <<PK>>
+    --
+    name : varchar
+}
+
+entity dish_allergen {
+    * id : bigint <<PK>>
+    --
+    * dish_id : bigint <<FK>>
+    * allergen_id : bigint <<FK>>
+}
+
+entity allergen {
+    * id : bigint <<PK>>
+    --
+    name : varchar
+}
+
+entity game {
+    * id : bigint <<PK>>
+    --
+    name : varchar
+}
+
+/' 
+
+    RELATIONS
+    
+'/
+
+patient ||--o{ _order
+patient ||--o{ patient_allergy
+patient_allergy }o--|| allergen
+
+_order ||--|{ order_dish
+order_dish }o--|| dish
+
+dish ||--o{ dish_allergen
+dish_allergen }o--|| allergen
+
+bed }o--|| room
+bed ||--o| patient
 
 /' 
 
