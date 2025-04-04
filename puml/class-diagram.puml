@@ -25,6 +25,8 @@ class App {
     +confirmationMessage
     +defaultSettings
     +games
+    +changeFontSize()
+    +enableScreedReader()
 }
 
 class Patient {
