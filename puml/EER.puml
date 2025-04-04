@@ -13,7 +13,7 @@
 '/
 
 @startuml
-!theme cyborg
+!theme superhero
 skinparam linetype ortho
 
 entity patient {
@@ -33,6 +33,12 @@ entity appointment {
     * id : bigint <<PK>>
     --
     * patient_id : bigint <<FK>>
+}
+
+entity appointment_employee {
+    * id : bigint <<PK>>
+    --
+    * appointment_id : bigint <<FK>>
     * employee_id : bigint <<FK>>
 }
 
@@ -96,10 +102,60 @@ entity allergen {
     name : varchar
 }
 
-entity game {
+entity game_category {
+    * id : bigint <<PK>>
+    --
+    * game_id : bigint <<FK>>
+    * category_id : bigint <<FK>>
+}
+
+entity category {
     * id : bigint <<PK>>
     --
     name : varchar
+    age_group : enum
+}
+
+entity event_patient {
+    * id : bigint <<PK>>
+    --
+    * event_id : bigint <<FK>>
+    * patient_id : bigint <<FK>>
+}
+
+entity training_program {
+    * id : bigint <<PK>>
+    --
+    name : varchar
+    description : varchar
+}
+
+entity training_program_slide {
+    * id : bigint <<PK>>
+    --
+    * difficulty : int
+    * seq_num : int
+    * slide_id : bigint <<FK>>
+}
+
+entity training_program_video {
+    * id : bigint <<PK>>
+    --
+    * difficulty : int
+    * seq_num : int
+    * video_id : bigint <<FK>>
+}
+
+entity slide {
+    * id : bigint <<PK>>
+    --
+    data : byte[]
+}
+
+entity video {
+    * id : bigint <<PK>>
+    --
+    data : byte[]
 }
 
 /' 
@@ -118,14 +174,36 @@ order_dish }o--|| dish
 dish ||--o{ dish_allergen
 dish_allergen }o--|| allergen
 
+appointment ||--|{ appointment_employee
+appointment_employee }o--|| employee
+
+game ||--|{ game_category
+game_category }o--|| category
+
+event ||--|{ event_patient
+event_patient }o--|| patient
+
 bed }o--|| room
 bed ||--o| patient
+
+training_program ||--|{ training_program_video
+training_program_video }o--|| video
+training_program ||--|{ training_program_slide
+training_program_slide }o--|| slide
 
 /' 
 
     NOTES 
     
 '/
+
+note left of training_program_video::difficulty
+    difficulty: videos may need to be different depending on difficulty-level
+end note
+
+note left of training_program_video::seq_num
+    seq_num: when in the program does it appear
+end note
 
 @enduml
 
