@@ -19,6 +19,10 @@
 
 ## TODO
 
+ - Opdater diagrammer ud fra PO's (Patrick) feedback
+
+### Generelle krav:
+
  - Funktionelle og Non-Funktionelle krav
  - Domænemodel
  - Klassediagram 2 iterationer
