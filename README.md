@@ -20,6 +20,7 @@
 ## TODO
 
  - Opdater diagrammer ud fra PO's (Patrick) feedback
+ - Boehm turner model ind i fælles board - https://docs.google.com/document/d/1EqbwZzxVy9Wp5Q9uKO0LlJurfGedr7Byr6gPtbGu2Dw/edit?tab=t.0 
 
 ### Generelle krav:
 
