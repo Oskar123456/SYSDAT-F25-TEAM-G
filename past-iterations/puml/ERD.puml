@@ -1,0 +1,226 @@
+/'
+
+    EER model for Patient Assist Project - SYSDAT F25 
+
+    Crow's Foot Notation:
+        Type 	        Symbol
+        
+        Zero or One 	|o--
+        Exactly One 	||--
+        Zero or Many 	}o--
+        One or Many 	}|--
+
+'/
+
+@startuml
+!theme cerulean
+skinparam linetype ortho
+
+entity patient {
+    * id : bigint <<PK>>
+    --
+    * bed number  <<FK>>
+}
+
+entity patient_allergy {
+    * id : bigint <<PK>>
+    --
+    * patient_id : bigint <<FK>>
+    * allergen_id : bigint <<FK>>
+}
+
+entity appointment {
+    * id : bigint <<PK>>
+    --
+    * patient_id : bigint <<FK>>
+}
+
+entity appointment_employee {
+    * id : bigint <<PK>>
+    --
+    * appointment_id : bigint <<FK>>
+    * employee_id : bigint <<FK>>
+}
+
+entity room {
+    * id : bigint <<PK>>
+    --
+}
+entity bed {
+    * id : bigint <<PK>>
+    --
+    * room_id : bigint <<FK>>
+}
+entity employee {
+    * id : bigint <<PK>>
+    --
+    role : enum
+}
+
+entity event {
+    * id : bigint <<PK>>
+    --
+    time : timestamp
+}
+
+entity game {
+    * id : bigint <<PK>>
+    --
+    name : varchar
+}
+
+entity score {
+    * id : bigint <<PK>>
+    --
+    value : bigint
+}
+
+entity game_score {
+    * id : bigint <<PK>>
+    --
+    * patient_id : bigint <<FK>>
+    * game_id : bigint <<FK>>
+    * score_id : bigint <<FK>>
+}
+
+entity _order {
+    * id : bigint <<PK>>
+    --
+    * patient_id : bigint <<FK>>
+    time : timestamp
+}
+
+entity order_dish {
+    * id : bigint <<PK>>
+    --
+    * order_id : bigint <<FK>>
+    * dish_id : bigint <<FK>>
+}
+
+entity dish {
+    * id : bigint <<PK>>
+    --
+    name : varchar
+}
+
+entity dish_allergen {
+    * id : bigint <<PK>>
+    --
+    * dish_id : bigint <<FK>>
+    * allergen_id : bigint <<FK>>
+}
+
+entity allergen {
+    * id : bigint <<PK>>
+    --
+    name : varchar
+}
+
+entity game_category {
+    * id : bigint <<PK>>
+    --
+    * game_id : bigint <<FK>>
+    * category_id : bigint <<FK>>
+}
+
+entity category {
+    * id : bigint <<PK>>
+    --
+    name : varchar
+    age_group : enum
+}
+
+entity event_patient {
+    * id : bigint <<PK>>
+    --
+    * event_id : bigint <<FK>>
+    * patient_id : bigint <<FK>>
+}
+
+entity training_program {
+    * id : bigint <<PK>>
+    --
+    name : varchar
+    description : varchar
+}
+
+entity training_program_slide {
+    * id : bigint <<PK>>
+    --
+    * difficulty : int
+    * seq_num : int
+    * slide_id : bigint <<FK>>
+}
+
+entity training_program_video {
+    * id : bigint <<PK>>
+    --
+    * difficulty : int
+    * seq_num : int
+    * video_id : bigint <<FK>>
+}
+
+entity slide {
+    * id : bigint <<PK>>
+    --
+    data : byte[]
+}
+
+entity video {
+    * id : bigint <<PK>>
+    --
+    data : byte[]
+}
+
+/' 
+
+    RELATIONS
+    
+'/
+
+patient ||--o{ _order
+patient ||--o{ patient_allergy
+patient_allergy }o--|| allergen
+
+_order ||--|{ order_dish
+order_dish }o--|| dish
+
+dish ||--o{ dish_allergen
+dish_allergen }o--|| allergen
+
+appointment ||--|{ appointment_employee
+appointment_employee }o--|| employee
+
+game ||--|{ game_category
+game_category }o--|| category
+game ||--|{ game_score
+game_score }o--|| score
+patient ||--|{ game_score
+
+event ||--|{ event_patient
+event_patient }o--|| patient
+
+bed }o--|| room
+bed ||--o| patient
+
+training_program ||--|{ training_program_video
+training_program_video }o--|| video
+training_program ||--|{ training_program_slide
+training_program_slide }o--|| slide
+
+/' 
+
+    NOTES 
+    
+'/
+
+note left of training_program_video::difficulty
+    difficulty: videos may need to be different depending on difficulty-level
+end note
+
+note left of training_program_video::seq_num
+    seq_num: when in the program does it appear
+end note
+
+@enduml
+
