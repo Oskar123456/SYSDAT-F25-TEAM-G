@@ -1,4 +1,5 @@
 # List of tasks
+Priority valued in: Small(S), Medium(M), Large(L).
 
   - [S] Create mock data[base] for frontend fetches
   - [S] [EXTRA] Graphical mockup of calendar appearance
