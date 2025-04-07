@@ -12,6 +12,7 @@
  - [Team Kanban Project](https://tree.taiga.io/project/oskar123456-sysdatf25-teamg-1/timeline)
  - [Team Scrum Project](https://tree.taiga.io/project/oskar123456-sysdatf25-teamg/timeline)
  - [Patient Assist Scrum Project](https://tree.taiga.io/project/cphkev-patientassist/timeline)
+ - [Team Kontrakt](...)
 
 ## TODO
 
