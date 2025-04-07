@@ -8,7 +8,14 @@
 
 ## LINKS
 
+ - [Team's fælles figma board](...)
+ - [Gruppens fælles figma board](https://www.figma.com/board/Sbp4H9WZRPnayBUYIYmAPO/SYS---PatientAssitent?node-id=0-1&p=f&t=A017u6onc3ecmg0z-0)
  - [Github Org](https://github.com/SYSDAT-PATIENT-ASSIST)
+ - [Team Kanban Project](https://tree.taiga.io/project/oskar123456-sysdatf25-teamg-1/timeline)
+ - [Team Scrum Project](https://tree.taiga.io/project/oskar123456-sysdatf25-teamg/timeline)
+ - [Patient Assist Scrum Project](https://tree.taiga.io/project/cphkev-patientassist/timeline)
+ - [Team Kontrakt](...)
+ - [Figma mockup fra PO](https://www.figma.com/design/nOCPprYZkvRbSGu1NDOjXT/Untitled?node-id=26-6)
 
 ## TODO
 
