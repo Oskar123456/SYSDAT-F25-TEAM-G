@@ -6,3 +6,5 @@
   - 26. maj - færdig
   - Bryd tasks ned i spikes [time box], hvis de kræver ny viden (research)
   - Gerne have fælles artefakter - f.eks. diagrammer
+  - Robusthedsdiagrammer
+  - Mockups (vi skal nok lave en mockup af kalenderen, siden vi ikke har noget konkret fra PO)
