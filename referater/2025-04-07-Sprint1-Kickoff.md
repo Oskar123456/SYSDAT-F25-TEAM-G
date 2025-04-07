@@ -8,3 +8,4 @@
   - Gerne have fælles artefakter - f.eks. diagrammer
   - Robusthedsdiagrammer
   - Mockups (vi skal nok lave en mockup af kalenderen, siden vi ikke har noget konkret fra PO)
+  - Reflekter over Waterfall vs. Agile og alt ind i mellem (WAGILE; UP)
