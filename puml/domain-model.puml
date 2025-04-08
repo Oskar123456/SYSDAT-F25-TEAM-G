@@ -13,7 +13,7 @@
 '/
 
 @startuml
-!theme cerulean
+/'!theme cerulean'/
 skinparam linetype ortho
 
 entity app {
@@ -27,10 +27,14 @@ entity patient {
     +bed number
 }
 
+entity bed {
+    
+}
+
 entity order {
     +dish
     +status
-    +patient
+    +bed number
     +note
 }
 
@@ -66,26 +70,29 @@ entity menu {
 }
 
 entity calendar {
-    +patient
-    +appointments
     +events
-}
-
-entity appointment {
-    +date
+    +meal order time interval
 }
 
 entity event {
     +date
 }
 
-entity doctor {
+enum ROLE {
+    doctor
+    nurse
+    chef
+    cleaning
 }
 
-entity nurse {
+entity staff {
+    +role
 }
 
 entity training_program {
+    exercises
+    videos
+    slides
 }
 
 entity exercise {
@@ -97,30 +104,24 @@ entity exercise {
     
 '/
 
-patient ||--o{ order
-order ||--|{ dish
-order }o--|| kitchen
+bed "1" -- "0..*" order
+order "0..*" -- "1..*" dish
+order "0..*" -- "1" kitchen
 
-game }o--|| difficulty
-game }o--o{ category
-game ||--|| scores
+game "0..*" -- "1" difficulty
+game "0..*" -- "1..*" category
+game "1" -- "0..*" scores
 
-kitchen ||--|| menu
-kitchen ||--|| headchef
+kitchen "1" -- "1" menu
+kitchen "1" -- "1" headchef
 
-calendar ||--o{ appointment
-calendar ||--o{ event
-calendar ||--|| patient
-calendar }|--o{ order
+calendar -- "0..*" event
+calendar -- "0..*" order
 
-appointment }o--|| patient
-appointment }o--o{ doctor
-appointment }o--o{ nurse
+training_program "1..*" -- "1..*" exercise
 
-patient ||--o{ training_program
-training_program ||--o{ exercise
-
-app ||--o{ game
+app -- "0..*" game
+app -- "0..*" training_program
 
 /' 
 

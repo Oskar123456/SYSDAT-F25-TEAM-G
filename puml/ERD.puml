@@ -13,43 +13,20 @@
 '/
 
 @startuml
-!theme cerulean
+/'!theme cerulean'/
 skinparam linetype ortho
 
-entity patient {
+entity section {
     * id : bigint <<PK>>
     --
-    * bed number  <<FK>>
-}
-
-entity patient_allergy {
-    * id : bigint <<PK>>
-    --
-    * patient_id : bigint <<FK>>
-    * allergen_id : bigint <<FK>>
-}
-
-entity appointment {
-    * id : bigint <<PK>>
-    --
-    * patient_id : bigint <<FK>>
-}
-
-entity appointment_employee {
-    * id : bigint <<PK>>
-    --
-    * appointment_id : bigint <<FK>>
-    * employee_id : bigint <<FK>>
-}
-
-entity room {
-    * id : bigint <<PK>>
-    --
+    name : varchar
 }
 entity bed {
     * id : bigint <<PK>>
     --
-    * room_id : bigint <<FK>>
+    * section_id : bigint <<FK>>
+    * occupied : bool
+    patient_name : varchar
 }
 entity employee {
     * id : bigint <<PK>>
@@ -61,24 +38,29 @@ entity event {
     * id : bigint <<PK>>
     --
     time : timestamp
+    name : varchar
+    description : varchar
 }
 
 entity game {
     * id : bigint <<PK>>
     --
     name : varchar
+    description : varchar
 }
 
 entity score {
     * id : bigint <<PK>>
     --
     value : bigint
+    player_name : varchar
+    time : timestamp
 }
 
 entity game_score {
     * id : bigint <<PK>>
     --
-    * patient_id : bigint <<FK>>
+    * player_name : bigint <<FK>>
     * game_id : bigint <<FK>>
     * score_id : bigint <<FK>>
 }
@@ -86,8 +68,8 @@ entity game_score {
 entity _order {
     * id : bigint <<PK>>
     --
-    * patient_id : bigint <<FK>>
-    time : timestamp
+    * bed_id : bigint <<FK>>
+    * time : timestamp
 }
 
 entity order_dish {
@@ -101,6 +83,9 @@ entity dish {
     * id : bigint <<PK>>
     --
     name : varchar
+    description : varchar
+    available_from : date
+    available_until : date
 }
 
 entity dish_allergen {
@@ -128,13 +113,6 @@ entity category {
     --
     name : varchar
     age_group : enum
-}
-
-entity event_patient {
-    * id : bigint <<PK>>
-    --
-    * event_id : bigint <<FK>>
-    * patient_id : bigint <<FK>>
 }
 
 entity training_program {
@@ -172,15 +150,18 @@ entity video {
     data : byte[]
 }
 
+entity employee_section {
+    * id : bigint <<PK>>
+    --
+    * employee_id : bigint <<FK>>
+    * section_id : bigint <<FK>>
+}
+
 /' 
 
     RELATIONS
     
 '/
-
-patient ||--o{ _order
-patient ||--o{ patient_allergy
-patient_allergy }o--|| allergen
 
 _order ||--|{ order_dish
 order_dish }o--|| dish
@@ -188,20 +169,15 @@ order_dish }o--|| dish
 dish ||--o{ dish_allergen
 dish_allergen }o--|| allergen
 
-appointment ||--|{ appointment_employee
-appointment_employee }o--|| employee
+employee ||--|{ employee_section
+employee_section }o--|| section
 
 game ||--|{ game_category
 game_category }o--|| category
 game ||--|{ game_score
 game_score }o--|| score
-patient ||--|{ game_score
 
-event ||--|{ event_patient
-event_patient }o--|| patient
-
-bed }o--|| room
-bed ||--o| patient
+bed }o--|| section
 
 training_program ||--|{ training_program_video
 training_program_video }o--|| video
@@ -215,11 +191,12 @@ training_program_slide }o--|| slide
 '/
 
 note left of training_program_video::difficulty
-    difficulty: videos may need to be different depending on difficulty-level
+videos may need to be different 
+depending on difficulty-level
 end note
 
 note left of training_program_video::seq_num
-    seq_num: when in the program does it appear
+when in the program does it appear
 end note
 
 @enduml
