@@ -50,6 +50,8 @@ entity kitchen {
 }
 
 entity game {
+    name
+    description
 }
 
 entity difficulty {
@@ -59,6 +61,8 @@ entity category {
 }
 
 entity scores {
+    patient name
+    value
 }
 
 entity headchef {
@@ -75,7 +79,9 @@ entity calendar {
 }
 
 entity event {
-    +date
+    date
+    name
+    description
 }
 
 enum ROLE {
@@ -86,7 +92,8 @@ enum ROLE {
 }
 
 entity staff {
-    +role
+    section
+    role
 }
 
 entity training_program {
@@ -98,12 +105,19 @@ entity training_program {
 entity exercise {
 }
 
+entity section {
+    name
+    beds
+}
+
 /' 
 
     RELATIONS
     
 '/
 
+staff "0..*" -- "1..*" section
+bed "0..*" -- "1" section
 bed "1" -- "0..*" order
 order "0..*" -- "1..*" dish
 order "0..*" -- "1" kitchen
@@ -122,6 +136,8 @@ training_program "1..*" -- "1..*" exercise
 
 app -- "0..*" game
 app -- "0..*" training_program
+
+staff -- "1..*" ROLE
 
 /' 
 
