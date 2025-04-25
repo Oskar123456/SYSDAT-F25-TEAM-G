@@ -16,6 +16,7 @@
  - [Patient Assist Scrum Project](https://tree.taiga.io/project/cphkev-patientassist/timeline)
  - [Team Kontrakt](...)
  - [Figma mockup fra PO](https://www.figma.com/design/nOCPprYZkvRbSGu1NDOjXT/Untitled?node-id=26-6)
+ - [Gruppens Gloseliste](https://docs.google.com/spreadsheets/d/1zgOaNeKqX33QMpb4rVPhd2uGUcbd71siKFI1JC7giWk/edit?gid=0#gid=0)
 
 ## TODO
 
