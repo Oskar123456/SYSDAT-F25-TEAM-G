@@ -38,6 +38,7 @@ entity event {
     * id : bigint <<PK>>
     --
     time : timestamp
+    duration : interval
     name : varchar
     description : varchar
 }
