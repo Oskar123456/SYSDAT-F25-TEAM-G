@@ -148,6 +148,9 @@ entity slide {
 entity video {
     * id : bigint <<PK>>
     --
+    name : varchar
+    description : varchar
+    length : interval
     data : byte[]
 }
 
