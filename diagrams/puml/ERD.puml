@@ -37,8 +37,8 @@ entity employee {
 entity event {
     * id : bigint <<PK>>
     --
-    time : timestamp
-    duration : interval
+    start_time : timestamp
+    end_time : timestamp
     name : varchar
     description : varchar
 }
