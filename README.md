@@ -17,6 +17,7 @@
  - [Team Kontrakt](...)
  - [Figma mockup fra PO](https://www.figma.com/design/nOCPprYZkvRbSGu1NDOjXT/Untitled?node-id=26-6)
  - [Gruppens Gloseliste](https://docs.google.com/spreadsheets/d/1zgOaNeKqX33QMpb4rVPhd2uGUcbd71siKFI1JC7giWk/edit?gid=0#gid=0)
+ - [Gruppens Coding Standards](https://docs.google.com/document/d/1rrNmIAPk9XwUih-2_Fa2bioXGrGzXFPR/edit?usp=sharing&ouid=116134997356646365901&rtpof=true&sd=true)
 
 ## TODO
 
